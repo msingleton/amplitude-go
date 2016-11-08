@@ -17,6 +17,7 @@ import "github.com/msingleton/amplitude-go"
 
 client := amplitude.New("amplitude-api-key")
 client.Event(amplitude.Event{
+	UserId:     "1234",
 	EventType:	"joined",
 })
 
