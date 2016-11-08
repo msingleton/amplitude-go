@@ -1,4 +1,4 @@
-# Go Amplitude [![GoDoc](http://img.shields.io/badge/godoc-reference-blue.svg)](http://godoc.org/github.com/msingleton/amplitude-go)
+# Go Amplitude [![GoDoc](http://img.shields.io/badge/godoc-reference-blue.svg)](http://godoc.org/github.com/msingleton/amplitude-go) [![Build Status](https://travis-ci.org/msingleton/amplitude-go.svg?branch=master)](https://travis-ci.org/msingleton/amplitude-go)
 
 ## Summary
 
