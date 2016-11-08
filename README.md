@@ -13,7 +13,7 @@ go get github.com/msingleton/amplitude-go
 ## Usage
 
 ```go
-import "github.com/msingleton/amplitude"
+import "github.com/msingleton/amplitude-go"
 
 client := amplitude.New("amplitude-api-key")
 client.Event(amplitude.Event{
