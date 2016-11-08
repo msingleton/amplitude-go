@@ -2,7 +2,7 @@
 
 ## Summary
 
-A Go library for Amplitude
+A Go library for [Amplitude](amplitude.com)
 
 ## Installation
 
