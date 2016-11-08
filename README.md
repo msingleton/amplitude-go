@@ -7,7 +7,7 @@ A Go library for Amplitude
 ## Installation
 
 ```sh
-go get github.com/msingleton/amplitude
+go get github.com/msingleton/amplitude-go
 ```
 
 ## Usage
