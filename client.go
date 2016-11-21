@@ -7,12 +7,14 @@ import (
 	"net/url"
 )
 
-const endpoint = "https://api.amplitude.com/httpapi"
+const eventEndpoint = "https://api.amplitude.com/httpapi"
+const identifyEndpoint = "https://api.amplitude.com/identify"
 
 // Client manages the communication to the Amplitude API
 type Client struct {
-	endpoint string
-	key      string
+	eventEndpoint    string
+	identifyEndpoint string
+	key              string
 }
 
 type Event struct {
@@ -80,8 +82,9 @@ type Identify struct {
 // New client with API key
 func New(key string) *Client {
 	return &Client{
-		endpoint: endpoint,
-		key:      key,
+		eventEndpoint:    eventEndpoint,
+		identifyEndpoint: identifyEndpoint,
+		key:              key,
 	}
 }
 
@@ -91,7 +94,7 @@ func (c *Client) Event(msg Event) error {
 		return err
 	}
 
-	return c.send("event", string(msgJson))
+	return c.send(c.eventEndpoint, "event", string(msgJson))
 }
 
 func (c *Client) Identify(msg Identify) error {
@@ -100,14 +103,14 @@ func (c *Client) Identify(msg Identify) error {
 		return err
 	}
 
-	return c.send("identification", string(msgJson))
+	return c.send(c.identifyEndpoint, "identification", string(msgJson))
 }
 
-func (c *Client) send(key string, value string) error {
+func (c *Client) send(endpoint string, key string, value string) error {
 	values := url.Values{}
 	values.Add("api_key", c.key)
 	values.Add(key, value)
 
-	_, err := http.PostForm(c.endpoint, values)
+	_, err := http.PostForm(endpoint, values)
 	return err
 }

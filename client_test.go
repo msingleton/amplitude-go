@@ -12,7 +12,7 @@ func ExampleEvent() {
 	defer server.Close()
 
 	client := New("s3cr3ts")
-	client.endpoint = server.URL
+	client.eventEndpoint = server.URL
 
 	client.Event(Event{
 		UserId:    "0000001",
@@ -36,7 +36,7 @@ func ExampleIdentify() {
 	defer server.Close()
 
 	client := New("s3cr3ts")
-	client.endpoint = server.URL
+	client.identifyEndpoint = server.URL
 
 	client.Identify(Identify{
 		UserId: "0000001",
