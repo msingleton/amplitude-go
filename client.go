@@ -15,6 +15,7 @@ type Client struct {
 	eventEndpoint    string
 	identifyEndpoint string
 	key              string
+	client           *http.Client
 }
 
 type Event struct {
@@ -85,7 +86,12 @@ func New(key string) *Client {
 		eventEndpoint:    eventEndpoint,
 		identifyEndpoint: identifyEndpoint,
 		key:              key,
+		client:           new(http.Client),
 	}
+}
+
+func (c *Client) SetClient(client *http.Client) {
+	c.client = client
 }
 
 func (c *Client) Event(msg Event) error {
@@ -111,6 +117,6 @@ func (c *Client) send(endpoint string, key string, value string) error {
 	values.Add("api_key", c.key)
 	values.Add(key, value)
 
-	_, err := http.PostForm(endpoint, values)
+	_, err := c.client.PostForm(endpoint, values)
 	return err
 }
