@@ -117,6 +117,9 @@ func (c *Client) send(endpoint string, key string, value string) error {
 	values.Add("api_key", c.key)
 	values.Add(key, value)
 
-	_, err := c.client.PostForm(endpoint, values)
+	resp, err := c.client.PostForm(endpoint, values)
+	if err == nil {
+		resp.Body.Close()
+	}
 	return err
 }
