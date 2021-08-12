@@ -7,7 +7,7 @@ import (
 	"net/url"
 )
 
-const eventEndpoint = "https://api.amplitude.com/httpapi"
+const eventEndpoint = "https://api.amplitude.com/2/httpapi"
 const identifyEndpoint = "https://api.amplitude.com/identify"
 
 // Client manages the communication to the Amplitude API
